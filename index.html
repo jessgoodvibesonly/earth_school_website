@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EARTH SCHOOL — A Temporary Human Experience</title>
+  <meta name="description" content="Learn it. Live it. Play it. Explore the EARTH SCHOOL course and Echo Point Island game.">
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: #f6f5f0;
+      background: #071110;
+      font-family: Arial, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .hero {
+      min-height: 100vh;
+      padding: 28px clamp(24px, 6vw, 90px);
+      display: flex;
+      flex-direction: column;
+      background:
+        radial-gradient(circle at 78% 62%, #947fbc88, transparent 32%),
+        linear-gradient(180deg, #020908 0%, #102a2a 45%, #b6a8d5 100%);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #ffffff55;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: .14em;
+    }
+    nav span { color: #ddff75; }
+    nav a:last-child { font-size: 12px; }
+    main {
+      width: min(100%, 1150px);
+      margin: auto 0;
+      padding: 80px 0;
+    }
+    .eyebrow {
+      color: #ddff75;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 28px 0;
+      font-family: Georgia, serif;
+      font-size: clamp(76px, 13vw, 180px);
+      font-weight: normal;
+      line-height: .8;
+      letter-spacing: -.075em;
+    }
+    h1 span { color: #ded1ff; }
+    p {
+      max-width: 570px;
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.5;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 38px;
+    }
+    .button {
+      padding: 17px 24px;
+      border: 1px solid #ddff75;
+      border-radius: 100px;
+      color: #ddff75;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .button.primary {
+      background: #ddff75;
+      color: #071110;
+    }
+    .button:hover { transform: translateY(-2px); }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 600px) {
+      .hero { min-height: 800px; }
+      main { padding: 90px 0; }
+      h1 { font-size: 20vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <nav>
+      <a href="#">EARTH <span>SCHOOL</span></a>
+      <a href="#begin">BEGIN HERE ↗</a>
+    </nav>
+
+    <main id="begin">
+      <div class="eyebrow">A temporary human experience · The game</div>
+      <h1>EARTH<br><span>SCHOOL.</span></h1>
+      <p>Being human is the game. Remembering who you are is how to play.</p>
+      <div class="buttons">
+        <a class="button primary" href="#course">Explore the course ↗</a>
+        <a class="button" href="#game">Discover the game ↗</a>
+      </div>
+    </main>
+
+    <footer>
+      <span>Learn it. Live it. Play it.</span>
+      <span>Created by Jess Good Vibes Only</span>
+    </footer>
+  </div>
+
+  <section id="course" style="padding:80px 6vw; max-width:900px">
+    <div class="eyebrow">The course</div>
+    <h2 style="font:normal clamp(48px,7vw,90px) Georgia,serif; margin:20px 0">
+      Explore your inner world.
+    </h2>
+    <p>Audio lessons, meditations, and activations for the journey through EARTH SCHOOL.</p>
+    <p>Course access coming soon.</p>
+  </section>
+
+  <section id="game" style="padding:80px 6vw 120px; max-width:900px">
+    <div class="eyebrow">The UEFN game</div>
+    <h2 style="font:normal clamp(48px,7vw,90px) Georgia,serif; margin:20px 0">
+      Enter Echo Point Island.
+    </h2>
+    <p>Explore, meet its people, and discover how your choices shape the journey.</p>
+    <p>Playable access coming soon.</p>
+  </section>
+</body>
+</html>
