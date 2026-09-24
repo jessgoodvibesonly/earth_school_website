@@ -4,141 +4,441 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EARTH SCHOOL — A Temporary Human Experience</title>
-  <meta name="description" content="Learn it. Live it. Play it. Explore the EARTH SCHOOL course and Echo Point Island game.">
+  <meta name="description" content="Learn it. Live it. Play it. Explore the EARTH SCHOOL course and the Echo Point Island game.">
   <style>
+    :root {
+      --ink: #061716;
+      --ink-soft: #0b2321;
+      --paper: #f0ebe2;
+      --mist: #cfc4e6;
+      --lime: #dafe73;
+      --line: rgba(240, 235, 226, 0.22);
+    }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 2rem;
+    }
+
     body {
       margin: 0;
-      color: #f6f5f0;
-      background: #071110;
-      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      color: var(--paper);
+      background: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; }
+
+    a { color: inherit; }
+
     .hero {
-      min-height: 100vh;
-      padding: 28px clamp(24px, 6vw, 90px);
+      position: relative;
+      isolation: isolate;
+      min-height: 100svh;
       display: flex;
       flex-direction: column;
-      background:
-        radial-gradient(circle at 78% 62%, #947fbc88, transparent 32%),
-        linear-gradient(180deg, #020908 0%, #102a2a 45%, #b6a8d5 100%);
+      padding: 1.5rem clamp(1.25rem, 5vw, 5rem) 1.75rem;
+      background-image: url("hero.png");
+      background-position: 62% center;
+      background-size: cover;
     }
-    nav {
+
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      content: "";
+      background:
+        linear-gradient(90deg, rgba(2, 13, 14, 0.92) 0%, rgba(2, 13, 14, 0.68) 36%, rgba(2, 13, 14, 0.12) 70%),
+        linear-gradient(180deg, rgba(2, 12, 13, 0.7) 0%, transparent 25%, transparent 72%, rgba(2, 12, 13, 0.72) 100%);
+    }
+
+    .site-nav,
+    .hero-foot {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #ffffff55;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: .14em;
-    }
-    nav span { color: #ddff75; }
-    nav a:last-child { font-size: 12px; }
-    main {
-      width: min(100%, 1150px);
-      margin: auto 0;
-      padding: 80px 0;
-    }
-    .eyebrow {
-      color: #ddff75;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: .22em;
+      gap: 1rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
-    h1 {
-      margin: 28px 0;
-      font-family: Georgia, serif;
-      font-size: clamp(76px, 13vw, 180px);
-      font-weight: normal;
-      line-height: .8;
-      letter-spacing: -.075em;
+
+    .site-nav {
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
     }
-    h1 span { color: #ded1ff; }
-    p {
-      max-width: 570px;
-      font-size: clamp(18px, 2vw, 23px);
+
+    .brand,
+    .nav-link,
+    .button {
+      text-decoration: none;
+    }
+
+    .brand-accent,
+    .eyebrow,
+    .card-number,
+    .status-mark {
+      color: var(--lime);
+    }
+
+    .nav-link {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav-link:hover { border-color: var(--lime); }
+
+    .hero-content {
+      width: min(47rem, 100%);
+      margin: auto 0;
+      padding: clamp(3.25rem, 9vh, 7rem) 0;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: clamp(0.64rem, 1.2vw, 0.76rem);
+      font-weight: 700;
+      letter-spacing: 0.22em;
       line-height: 1.5;
+      text-transform: uppercase;
     }
+
+    h1,
+    h2,
+    h3,
+    p { margin-top: 0; }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+    }
+
+    h1 {
+      max-width: 7ch;
+      margin: 1.1rem 0 1.5rem;
+      font-size: clamp(4.1rem, 11.2vw, 9.5rem);
+      line-height: 0.78;
+      letter-spacing: -0.075em;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--mist);
+    }
+
+    .hero-message {
+      max-width: 32rem;
+      margin-bottom: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      line-height: 1.45;
+    }
+
     .buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 38px;
+      gap: 0.75rem;
+      margin-top: 2rem;
     }
+
     .button {
-      padding: 17px 24px;
-      border: 1px solid #ddff75;
-      border-radius: 100px;
-      color: #ddff75;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: .08em;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 3.25rem;
+      padding: 0.85rem 1.35rem;
+      border: 1px solid var(--lime);
+      border-radius: 999px;
+      color: var(--lime);
+      font-size: 0.71rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+    }
+
+    .button.primary {
+      color: var(--ink);
+      background: var(--lime);
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button:not(.primary):hover { color: var(--ink); background: var(--lime); }
+
+    .hero-foot {
+      align-items: flex-end;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    .scroll-cue { color: rgba(240, 235, 226, 0.72); }
+
+    .content-section {
+      position: relative;
+      padding: clamp(5rem, 11vw, 9rem) clamp(1.25rem, 7vw, 7rem);
+    }
+
+    .course {
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .course .eyebrow { color: #426819; }
+
+    .game {
+      background:
+        radial-gradient(circle at 85% 25%, rgba(143, 115, 172, 0.24), transparent 28rem),
+        var(--ink-soft);
+    }
+
+    .section-inner {
+      width: min(76rem, 100%);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
+      gap: clamp(2rem, 8vw, 8rem);
+      align-items: end;
+    }
+
+    h2 {
+      max-width: 10ch;
+      margin: 1.1rem 0 0;
+      font-size: clamp(3rem, 7.2vw, 6.7rem);
+      line-height: 0.92;
+      letter-spacing: -0.055em;
+    }
+
+    .intro {
+      margin-bottom: 0;
+      font-size: clamp(1rem, 1.55vw, 1.2rem);
+      line-height: 1.65;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: clamp(3rem, 7vw, 6rem);
+      border-top: 1px solid currentColor;
+    }
+
+    .card {
+      min-width: 0;
+      padding: 1.5rem clamp(1rem, 2.5vw, 2rem) 1.25rem 0;
+      border-right: 1px solid currentColor;
+    }
+
+    .card + .card { padding-left: clamp(1rem, 2.5vw, 2rem); }
+    .card:last-child { border-right: 0; }
+
+    .course .cards,
+    .course .card { border-color: rgba(6, 23, 22, 0.23); }
+
+    .game .cards,
+    .game .card { border-color: rgba(240, 235, 226, 0.22); }
+
+    .card-number {
+      display: block;
+      margin-bottom: 2.75rem;
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .course .card-number { color: #426819; }
+
+    h3 {
+      margin-bottom: 0.7rem;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+      font-weight: 400;
+    }
+
+    .card p {
+      max-width: 26rem;
+      margin-bottom: 0;
+      color: inherit;
+      font-size: 0.92rem;
+      line-height: 1.65;
+      opacity: 0.76;
+    }
+
+    .status {
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      margin: 3rem 0 0;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
     }
-    .button.primary {
-      background: #ddff75;
-      color: #071110;
-    }
-    .button:hover { transform: translateY(-2px); }
-    footer {
+
+    .status-mark { font-size: 1rem; }
+    .course .status-mark { color: #426819; }
+
+    .site-footer {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      font-size: 12px;
-      letter-spacing: .12em;
+      gap: 2rem;
+      padding: 2.25rem clamp(1.25rem, 7vw, 7rem);
+      border-top: 1px solid var(--line);
+      color: rgba(240, 235, 226, 0.72);
+      background: #03100f;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      line-height: 1.6;
       text-transform: uppercase;
     }
-    @media (max-width: 600px) {
-      .hero { min-height: 800px; }
-      main { padding: 90px 0; }
-      h1 { font-size: 20vw; }
+
+    :focus-visible {
+      outline: 2px solid var(--lime);
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: 47rem;
+        background-position: 69% center;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(2, 13, 14, 0.9) 0%, rgba(2, 13, 14, 0.62) 62%, rgba(2, 13, 14, 0.18) 100%),
+          linear-gradient(180deg, rgba(2, 12, 13, 0.65) 0%, transparent 24%, transparent 65%, rgba(2, 12, 13, 0.78) 100%);
+      }
+
+      h1 { font-size: clamp(4rem, 23vw, 6.2rem); }
+      .section-heading { grid-template-columns: 1fr; }
+      .intro { max-width: 34rem; }
+      .cards { grid-template-columns: 1fr; }
+
+      .card,
+      .card + .card {
+        padding: 1.35rem 0;
+        border-right: 0;
+        border-bottom: 1px solid currentColor;
+      }
+
+      .card:last-child { border-bottom: 0; }
+      .card-number { margin-bottom: 1.5rem; }
+      .site-footer { flex-direction: column; gap: 0.7rem; }
+    }
+
+    @media (max-width: 430px) {
+      .site-nav .nav-link { display: none; }
+      .buttons { flex-direction: column; }
+      .button { width: 100%; }
+      .hero-foot { font-size: 0.6rem; }
+      .hero-foot span:last-child { text-align: right; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <nav>
-      <a href="#">EARTH <span>SCHOOL</span></a>
-      <a href="#begin">BEGIN HERE ↗</a>
+  <header class="hero" id="top">
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="EARTH SCHOOL home">EARTH <span class="brand-accent">SCHOOL</span></a>
+      <a class="nav-link" href="#course">Begin here ↓</a>
     </nav>
 
-    <main id="begin">
-      <div class="eyebrow">A temporary human experience · The game</div>
-      <h1>EARTH<br><span>SCHOOL.</span></h1>
-      <p>Being human is the game. Remembering who you are is how to play.</p>
-      <div class="buttons">
-        <a class="button primary" href="#course">Explore the course ↗</a>
-        <a class="button" href="#game">Discover the game ↗</a>
+    <div class="hero-content">
+      <p class="eyebrow">A temporary human experience · The game</p>
+      <h1>EARTH <span>SCHOOL</span></h1>
+      <p class="hero-message">Being human is the game. Remembering who you are is how to play.</p>
+      <div class="buttons" aria-label="Explore EARTH SCHOOL">
+        <a class="button primary" href="#course">Explore the course ↓</a>
+        <a class="button" href="#game">Discover the game ↓</a>
       </div>
-    </main>
+    </div>
 
-    <footer>
+    <div class="hero-foot" aria-hidden="true">
       <span>Learn it. Live it. Play it.</span>
-      <span>Created by Jess Good Vibes Only</span>
-    </footer>
-  </div>
+      <span class="scroll-cue">Follow the signal ↓</span>
+    </div>
+  </header>
 
-  <section id="course" style="padding:80px 6vw; max-width:900px">
-    <div class="eyebrow">The course</div>
-    <h2 style="font:normal clamp(48px,7vw,90px) Georgia,serif; margin:20px 0">
-      Explore your inner world.
-    </h2>
-    <p>Audio lessons, meditations, and activations for the journey through EARTH SCHOOL.</p>
-    <p>Course access coming soon.</p>
-  </section>
+  <main>
+    <section class="content-section course" id="course">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 · The course</p>
+            <h2>Remember what you know.</h2>
+          </div>
+          <p class="intro">A growing library of audio lessons, meditations, and activations for meeting life with deeper awareness—and creating from a more conscious place.</p>
+        </div>
 
-  <section id="game" style="padding:80px 6vw 120px; max-width:900px">
-    <div class="eyebrow">The UEFN game</div>
-    <h2 style="font:normal clamp(48px,7vw,90px) Georgia,serif; margin:20px 0">
-      Enter Echo Point Island.
-    </h2>
-    <p>Explore, meet its people, and discover how your choices shape the journey.</p>
-    <p>Playable access coming soon.</p>
-  </section>
+        <div class="cards">
+          <article class="card">
+            <span class="card-number">01 / LISTEN</span>
+            <h3>Audio lessons</h3>
+            <p>Explore the Seven Hermetic Principles and practical ideas for moving through your human experience.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">02 / PAUSE</span>
+            <h3>Meditations</h3>
+            <p>Return to the present, witness your inner world, and strengthen the practice of awareness.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">03 / CREATE</span>
+            <h3>Activations</h3>
+            <p>Move insight into lived experience through intentional reflection and conscious creation.</p>
+          </article>
+        </div>
+
+        <p class="status"><span class="status-mark">✦</span> In development on Skool · Access coming soon</p>
+      </div>
+    </section>
+
+    <section class="content-section game" id="game">
+      <div class="section-inner">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 · The UEFN game</p>
+            <h2>Enter Echo Point Island.</h2>
+          </div>
+          <p class="intro">A story-led world where the path responds to how you move through it. Follow the road, notice what echoes back, and choose what happens next.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="card-number">01 / ARRIVE</span>
+            <h3>Dream State Diner</h3>
+            <p>A glowing landmark on the edge of the island, where encounters offer clues for the road ahead.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">02 / EXPLORE</span>
+            <h3>Sanctuary Vehicle</h3>
+            <p>Your refuge and companion as you travel Echo Point Island and discover what it is holding.</p>
+          </article>
+          <article class="card">
+            <span class="card-number">03 / CHOOSE</span>
+            <h3>Your journey</h3>
+            <p>Meet the island with intention. The choices you make shape the way your journey unfolds.</p>
+          </article>
+        </div>
+
+        <p class="status"><span class="status-mark">✦</span> UEFN game in development · Playable access coming soon</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>EARTH SCHOOL · A temporary human experience</span>
+    <span>Created by Jess Good Vibes Only / THE HIGH PRIESTjESS</span>
+  </footer>
 </body>
 </html>
